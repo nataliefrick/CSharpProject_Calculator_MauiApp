@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CSharpProject_Calculator_MauiApp.MainPage"
+             Title="Calculator" Background="white"
+             
+             >
+
+    <!-- Grid Background: Two rows: Display & Buttons -->
+    <Grid 
+            RowDefinitions="100, *" 
+            ColumnDefinitions="*"
+            Padding="10"
+            Margin="10"
+            HorizontalOptions="Center"
+            ColumnSpacing="10"
+            RowSpacing="10"
+            BackgroundColor="#eee">
+
+        <Border Background="#dddddd"/>
+
+
+        <!--Row 0: Display-->
+        <Grid
+                
+                RowDefinitions="auto, auto" 
+                ColumnDefinitions="100"
+                Padding="10"
+                HorizontalOptions="End"
+                ColumnSpacing="10"
+                RowSpacing="10">
+
+            <Label
+                    Text="Equation Text"
+                    x:Name="equation"
+                    FontSize="18"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    />
+
+            <Label
+                    Text="Answer Text"
+                    x:Name="answer"
+                    FontSize="28"
+                    Grid.Row="1"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    />
+
+        </Grid>
+
+        <!--Row 1: Calculator-->
+        <Grid
+                RowDefinitions="*, *, *, *, *" 
+                ColumnDefinitions="*, *, *, *"
+                Grid.Row="1"
+                Padding="10"
+                HorizontalOptions="Center"
+                ColumnSpacing="10"
+                RowSpacing="10"
+                >
+
+
+            <!-- First Row -->
+            <Button Text="C" x:Name="btnClear" Grid.Row="0" Grid.Column="0" Clicked="ClearEqn"/>
+            <Button Text="/" x:Name="btnDivide" Grid.Row="0" Grid.Column="1" Clicked="CaptureOperation"/>
+            <Button Text="X" x:Name="btnMultiply" Grid.Row="0" Grid.Column="2" Clicked="CaptureOperation"/>
+            <Button Text="^2" x:Name="btnDelete" Grid.Row="0" Grid.Column="3" Clicked="OnPower2"/>
+
+            <!-- Second Row -->
+            <Button Text="7" x:Name="btn7" Grid.Row="1" Grid.Column="0" Clicked="CaptureNr"/>
+            <Button Text="8" x:Name="btn8" Grid.Row="1" Grid.Column="1" Clicked="CaptureNr"/>
+            <Button Text="9" x:Name="btn9" Grid.Row="1" Grid.Column="2" Clicked="CaptureNr"/>
+            <Button Text="-" x:Name="btnMinus" Grid.Row="1" Grid.Column="3" FontSize="18" Clicked="CaptureOperation"/>
+
+            <!-- Third Row -->
+            <Button Text="4" x:Name="btn4" Grid.Row="2" Grid.Column="0" Clicked="CaptureNr"/>
+            <Button Text="5" x:Name="btn5" Grid.Row="2" Grid.Column="1" Clicked="CaptureNr"/>
+            <Button Text="6" x:Name="btn6" Grid.Row="2" Grid.Column="2" Clicked="CaptureNr"/>
+            <Button Text="+" x:Name="btnPlus" Grid.Row="2" Grid.Column="3" FontSize="18" Clicked="CaptureOperation"/>
+
+            <!-- Fourth Row -->
+            <Button Text="1" x:Name="btn1" Grid.Row="3" Grid.Column="0" Clicked="CaptureNr"/>
+            <Button Text="2" x:Name="btn2" Grid.Row="3" Grid.Column="1" Clicked="CaptureNr"/>
+            <Button Text="3" x:Name="btn3" Grid.Row="3" Grid.Column="2" Clicked="CaptureNr"/>
+            <Button Text="=" x:Name="btnEquals" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" FontSize="18" Clicked="OnEquals"/>
+
+            <!-- Fifth Row -->
+            <Button Text="%" x:Name="btnPercent" Grid.Row="4" Grid.Column="0" Clicked="OnPercentage"/>
+            <Button Text="0" x:Name="btn0" Grid.Row="4" Grid.Column="1" Clicked="CaptureNr"/>
+            <Button Text="." x:Name="btnDot" Grid.Row="4" Grid.Column="2" FontSize="18" Clicked="CaptureNr"/>
+
+
+        </Grid>
+    </Grid>
+
+
+
+
+
+</ContentPage>
